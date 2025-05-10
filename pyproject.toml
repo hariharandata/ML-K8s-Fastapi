@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ML-K8s-Fastapi"
+version = "0.1.0"
+description = "A basic Iris flower classifier API using Scikit-learn + FastAPI, deployed to Kubernetes."
+authors = ["Hariharan"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+scikit-learn = "^1.5.2"
+joblib = "^1.4.2"
+numpy = "^1.24.4"
+pydantic = "^2.5.3"

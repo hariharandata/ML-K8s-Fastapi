@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-ml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris
+  template:
+    metadata:
+      labels:
+        app: iris
+    spec:
+      containers:
+        - name: iris-container
+          image: hariharan26/iris-ml:latest  # your Docker image
+          ports:
+            - containerPort: 5000  # port your FastAPI app runs on
