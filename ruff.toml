@@ -1,3 +1,4 @@
+[tool.ruff]
 # Linting rules to apply
 select = ["E", "F", "B", "I", "UP", "C90", "SIM"]
 ignore = ["E501", "B008"]  # Line too long & function call as default arg (if needed)
