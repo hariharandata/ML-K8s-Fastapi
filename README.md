@@ -17,6 +17,7 @@ A basic Iris flower classifier API built with Scikit-learn and FastAPI, designed
   - [POST /predict](#post-predict)
 - [Project Structure](#project-structure)
 - [Makefile Commands](#makefile-commands)
+- [CI/CD with GitHub Actions](#cicd-with-github-actions)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -178,6 +179,16 @@ ML-K8s-Fastapi/
 -   `make deploy`: Deploys the application to Minikube.
 -   `make clean`: Removes the Docker image, stops and deletes the Docker container, and deletes Kubernetes resources.
 -   `make url`: Fetches and prints the service URL from Minikube.
+
+## CI/CD with GitHub Actions
+
+This project uses GitHub Actions for continuous integration. The workflow is defined in `.github/workflows/lint.yml` and performs the following checks on every push and pull request to the `main` branch:
+
+- **Linting**: Runs `ruff check . --fix` to ensure code style and quality.
+- **Formatting**: Runs `ruff format --check .` to verify code formatting.
+- **Testing**: Runs `pytest` to execute automated tests.
+
+This helps maintain code quality and ensures that changes integrate smoothly.
 
 ## Contributing
 
