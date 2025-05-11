@@ -14,3 +14,4 @@ joblib = "^1.4.2"
 numpy = "^1.24.4"
 pydantic = "^2.5.3"
 pytest = "^8.3.4"
+ruff = "^0.4.4" # Using a recent version of Ruff
