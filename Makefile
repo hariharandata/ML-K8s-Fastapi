@@ -23,4 +23,4 @@ url:
 
 format:
 	ruff check . --fix
-	ruff format --check .
+	ruff format .

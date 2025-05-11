@@ -20,4 +20,3 @@ model.fit(X_train, y_train)
 # Save the model in the same directory as the script
 model_path = Path(__file__).parent / "iris_model.pkl"
 joblib.dump(model, model_path)
-

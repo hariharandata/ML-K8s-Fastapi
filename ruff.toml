@@ -1,8 +1,5 @@
 # Ruff configuration
 
-select = ["E", "F", "B", "I", "UP", "C90", "SIM"]
-ignore = ["E501", "B008"]  # Line too long & function call as default arg
-
 target-version = "py311"
 line-length = 100
 
@@ -17,13 +14,17 @@ exclude = [
     ".tox",
 ]
 
+[lint]
+select = ["E", "F", "B", "I", "UP", "C90", "SIM"]
+ignore = ["E501", "B008"]  # Line too long & function call as default arg
+
+[lint.isort]
+known-first-party = ["src"]
+combine-as-imports = true
+force-single-line = false
+
 [format]
 quote-style = "double"
 skip-magic-trailing-comma = false
 indent-style = "space"
 line-ending = "lf"
-
-[isort]
-known-first-party = ["src"]
-combine-as-imports = true
-force-single-line = false
