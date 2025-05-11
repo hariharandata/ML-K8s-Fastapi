@@ -1,8 +1,9 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from pathlib import Path
+
 import joblib
 import numpy as np
-from pathlib import Path
+from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 

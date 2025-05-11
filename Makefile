@@ -20,3 +20,7 @@ clean:
 
 url:
 	minikube service iris-service --url
+
+format:
+	ruff check . --fix
+	ruff format --check .
