@@ -24,7 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install ruff pylint pytest
+          pip install -e . # If your pyproject.toml is set up for editable installs
+          # pip install ruff pylint pytest
           # If you have other dependencies needed for linting (e.g., plugins for ruff or pylint)
           # Or if your linters need to import your project code to work correctly:
           # pip install -e . # If your pyproject.toml is set up for editable installs
