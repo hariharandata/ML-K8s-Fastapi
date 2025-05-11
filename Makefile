@@ -24,6 +24,7 @@ url:
 format:
 	ruff check . --fix
 	ruff format .
+	ruff format --check .
 
 pytest:
 	pytest

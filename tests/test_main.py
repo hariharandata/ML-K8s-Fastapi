@@ -5,7 +5,6 @@ from pathlib import Path
 import joblib
 import pytest
 
-
 # Determine the root directory of the project (ML-K8s-Fastapi)
 # This assumes tests are run from the project root or that the project root is in PYTHONPATH
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -21,7 +20,9 @@ def test_model_script_runs_and_saves_model():
 
     # Run the model.py script
     # Using sys.executable ensures we use the same Python interpreter that's running pytest
-    process = subprocess.run([sys.executable, str(MODEL_SCRIPT_PATH)], capture_output=True, text=True)
+    process = subprocess.run(
+        [sys.executable, str(MODEL_SCRIPT_PATH)], capture_output=True, text=True
+    )
 
     # Check that the script ran successfully
     assert process.returncode == 0, f"Model script failed with error: {process.stderr}"
