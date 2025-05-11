@@ -182,13 +182,34 @@ ML-K8s-Fastapi/
 
 ## CI/CD with GitHub Actions
 
-This project uses GitHub Actions for continuous integration. The workflow is defined in `.github/workflows/lint.yml` and performs the following checks on every push and pull request to the `main` branch:
+This project uses GitHub Actions for continuous integration and deployment tasks. Workflows are defined in the `.github/workflows/` directory.
 
-- **Linting**: Runs `ruff check . --fix` to ensure code style and quality.
-- **Formatting**: Runs `ruff format --check .` to verify code formatting.
-- **Testing**: Runs `pytest` to execute automated tests.
+### 1. Linting and Testing (`lint.yml`)
 
-This helps maintain code quality and ensures that changes integrate smoothly.
+This workflow runs on every push and pull request to the `main` branch and performs the following checks:
+
+- **Linting**: Runs `poetry run ruff check . --fix` to ensure code style and quality.
+- **Formatting**: Runs `poetry run ruff format --check .` to verify code formatting.
+- **Testing**: Runs `poetry run pytest` to execute automated tests.
+
+This helps maintain code quality and ensures that new changes integrate smoothly.
+
+### 2. Docker Image Build and Push (`docker-image.yml`)
+
+This workflow also runs on every push and pull request to the `main` branch. It handles the building and pushing of the Docker image to Docker Hub:
+
+- **Builds Docker Image**: It builds the Docker image using the `Dockerfile` in the root directory.
+- **Tags Image**: The image is tagged with `latest` and also with the Git commit SHA for versioning (e.g., `yourusername/repository:commitsha`).
+- **Pushes to Docker Hub**: On a push to the `main` branch, the tagged images are pushed to Docker Hub.
+
+**Required GitHub Secrets for Docker Hub Push:**
+
+To enable the workflow to push to Docker Hub, you need to configure the following secrets in your GitHub repository settings (Settings > Secrets and variables > Actions > New repository secret):
+
+- `DOCKERHUB_USERNAME`: Your Docker Hub username.
+- `DOCKERHUB_TOKEN`: A Docker Hub access token. It is recommended to use an access token instead of your password.
+
+These secrets are used by the `docker/login-action` to authenticate with Docker Hub.
 
 ## Contributing
 
